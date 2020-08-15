@@ -2,7 +2,8 @@
 
 ## What tool should I use to understand what is happening
 
-To understand what is happening, you need to generate a dump of your process. To do that, you can use the following tools:
+To understand what is happening, you need to generate a dump of your process. To
+do that, you can use the following tools:
 
 - [DebugDiag](https://debugdiag.com)
 - [ProcDump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
@@ -10,9 +11,12 @@ To understand what is happening, you need to generate a dump of your process. To
 
 ## How to analyze the dump file using WinDbgX
 
-1. Open [WinDbgX](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-preview)
+1. Open
+   [WinDbgX](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-preview)
 2. Load the generated dump
-3. Check if [SOS](https://github.com/dotnet/diagnostics/blob/master/documentation/sos-debugging-extension-windows.md) loaded correctly:
+3. Check if
+   [SOS](https://github.com/dotnet/diagnostics/blob/master/documentation/sos-debugging-extension-windows.md)
+   loaded correctly:
 
     ```text
     0:000> .chain
