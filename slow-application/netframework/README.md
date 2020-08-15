@@ -1,22 +1,9 @@
 # How to find out why my application is slowing
 
-## What tool should I use to understand what is happening
-
-To understand what is happening, you need to generate a dump of your process. To
-do that, you can use the following tools:
-
-- [DebugDiag](https://debugdiag.com)
-- [ProcDump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
-
-In this case, since it's a scenario of slowness, you should generate more than
-one dump.
-
 ## How to analyze the dump file
 
-1. Open
-   [WinDbgX](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-preview)
-2. Load the generated dump
-3. Check if
+1. Open WinDbgX and load the generated dump
+2. Check if
    [SOS](https://github.com/dotnet/diagnostics/blob/master/documentation/sos-debugging-extension-windows.md)
    loaded correctly:
 
@@ -27,12 +14,12 @@ one dump.
             [path: C:\Windows\Microsoft.NET\Framework\v4.0.30319\SOS.dll]
     ```
 
-4. Checking user mode time from each thread:
+3. Checking user mode time from each thread:
 
     Looking at the `.time` and `!runaway`, we can see that the execution is fast
     and isn't stuck anywhere.
 
-    4.1. First dump:
+    3.1. First dump:
 
     ```text
     0:000> !runaway
@@ -53,7 +40,7 @@ one dump.
     User time: 0 days 0:00:00.000
     ```
 
-    4.2. Second dump:
+    3.2. Second dump:
 
     ```text
     0:000> !runaway
@@ -76,12 +63,12 @@ one dump.
     User time: 0 days 0:00:00.000
     ```
 
-5. Check the stack to see what is happening:
+4. Check the stack to see what is happening:
 
     Looking at the `!clrstack`, we can see that both threads are in the same
     position in different dumps sleeping.
 
-    5.1. First dump:
+    4.1. First dump:
 
     ```text
     0:000> !clrstack
@@ -94,7 +81,7 @@ one dump.
     010fef0c 6d65f036 [GCFrame: 010fef0c]
     ```
 
-    5.2. Second dump:
+    4.2. Second dump:
 
     ```text
     0:000> !clrstack

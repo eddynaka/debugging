@@ -1,19 +1,9 @@
 # How to find out why my application is crashing
 
-## What tool should I use to understand what is happening
-
-To understand what is happening, you need to generate a dump of your process. To
-do that, you can use the following tools:
-
-- [DebugDiag](https://debugdiag.com)
-- [ProcDump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
-
 ## How to analyze the dump file
 
-1. Open
-   [WinDbgX](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-preview)
-2. Load the generated dump
-3. Check if
+1. Open WinDbgX and load the generated dump
+2. Check if
    [SOS](https://github.com/dotnet/diagnostics/blob/master/documentation/sos-debugging-extension-windows.md)
    loaded correctly:
 
@@ -24,7 +14,7 @@ do that, you can use the following tools:
             [path: C:\Windows\Microsoft.NET\Framework\v4.0.30319\SOS.dll]
     ```
 
-4. Retrieve the last exception:
+3. Retrieve the last exception:
 
     ```text
     0:000> !pe
@@ -40,7 +30,7 @@ do that, you can use the following tools:
     HResult: 80131500
     ```
 
-5. Check the stack to see how it happened:
+4. Check the stack to see how it happened:
 
     ```text
     0:000> !clrstack
