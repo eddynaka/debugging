@@ -36,7 +36,7 @@ To understand what is happening, you need to generate a dump of your process. To
     HResult: 80131500
     ```
 
-5. Check the stack, to see how it happened:
+5. Check the stack to see how it happened:
 
     ```text
     0:000> !clrstack
